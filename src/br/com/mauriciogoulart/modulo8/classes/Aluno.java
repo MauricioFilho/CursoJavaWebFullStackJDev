@@ -153,5 +153,17 @@ public class Aluno {
         return somaTotal / disciplinas.size();
     }
 
+    public String getAlunoAprovado(){
+
+        if(getMedia() <= 69){
+
+            return "O Aluno reprovou!";
+
+        } else {
+
+            return "O Aluno aprovou!";
+        }
+    }
+
 }
 
