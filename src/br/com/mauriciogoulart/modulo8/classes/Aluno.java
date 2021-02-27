@@ -1,5 +1,8 @@
 package br.com.mauriciogoulart.modulo8.classes;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Aluno {
 
     //atributos da classe aluno
@@ -15,6 +18,13 @@ public class Aluno {
     private String dataMatricula;
     private String nomeEscola;
     private String serieMatriculado;
+
+
+    /*cria uma lista de disciplinas*/
+    private List<Disciplina> disciplinas = new ArrayList<>();
+
+
+
 
     /*Construtores*/
 
@@ -118,5 +128,30 @@ public class Aluno {
     public void setSerieMatriculado(String serieMatriculado) {
         this.serieMatriculado = serieMatriculado;
     }
+
+    public List<Disciplina> getDisciplina() {
+        return disciplinas;
+    }
+
+    public void setDisciplina(List<Disciplina> disciplina) {
+        this.disciplinas = disciplina;
+    }
+
+    /*metodos*/
+
+    //retorna a média das notas
+
+    public double getMedia(){
+
+        double somaTotal = 0.0;
+
+        for (Disciplina disciplina:
+             disciplinas) {
+             somaTotal += disciplina.getNota();
+        }
+
+        return somaTotal / disciplinas.size();
+    }
+
 }
 
