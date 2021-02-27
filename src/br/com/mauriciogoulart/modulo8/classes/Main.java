@@ -14,6 +14,10 @@ public class Main {
 
         Aluno aluno2 = new Aluno(); /*João*/
 
+        /*Manipulando dados dos objetos*/
+        aluno2.setNomeMae("João"); //setando valores no objeto aluno pelo metodo set
+        System.out.println("Nome do aluno2 é: " + aluno2.getNome()); //recuperando os valores setados pelo metodo set utilizando o metodo get
+
         Aluno aluno3 = new Aluno(); /*Pedro*/
 
         Aluno aluno4 = new Aluno(); /*Alex */
