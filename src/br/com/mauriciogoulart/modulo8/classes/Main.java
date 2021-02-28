@@ -72,6 +72,17 @@ public class Main {
             aluno.getDisciplina().add(disciplina);
         }
 
+        /*Removendo elementos de uma Lista*/
+
+        int escolha  = JOptionPane.showConfirmDialog(null, "Deseja remover alguma disciplina?"); //caixa de escolha dinamica
+
+        if (escolha == 0) {
+
+            String disciplinaRemover = JOptionPane.showInputDialog("Insira a disciplina a ser removida: 1 , 2 , 3 ou 4");
+
+            aluno.getDisciplina().remove(Integer.parseInt(disciplinaRemover) -1); //removendo elemento da lista
+        }
+
         System.out.println("Média aluno: " + aluno.getMedia());
         System.out.println("Situação do aluno: " + aluno.getAlunoAprovado());
 

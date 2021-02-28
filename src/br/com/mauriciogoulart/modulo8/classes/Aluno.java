@@ -153,6 +153,8 @@ public class Aluno {
         return somaTotal / disciplinas.size();
     }
 
+    //verifica o resultado final do aluno
+
     public String getAlunoAprovado(){
 
         if(getMedia() <= 69){
