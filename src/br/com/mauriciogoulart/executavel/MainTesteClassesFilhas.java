@@ -2,6 +2,7 @@ package br.com.mauriciogoulart.executavel;
 
 import br.com.mauriciogoulart.classes.Aluno;
 import br.com.mauriciogoulart.classes.Diretor;
+import br.com.mauriciogoulart.classes.Pessoa;
 import br.com.mauriciogoulart.classes.Secretario;
 
 /*Classe para testar herança das classes aluno, diretor e secretario*/
@@ -33,5 +34,21 @@ public class MainTesteClassesFilhas {
         System.out.println("Secretária -> " + secretario.toString());
         System.out.println(aluno.pessoaMaioridade());
         System.out.println("Salario da secretária -> " + secretario.salario());
+
+        /*EXEMPLO DE POLIMORFISMO*/
+        teste(aluno);
+        teste(diretor);
+        teste(secretario);
+
+
+    }
+
+    /*METODO PARA TESTE DE POLIMORFISMO*/
+    public static void teste(Pessoa pessoa) {
+
+        System.out.println(
+                "Nome da pessoa -> " + pessoa.getNome()
+                        + "\nSalario -> " + pessoa.salario()
+        );
     }
 }

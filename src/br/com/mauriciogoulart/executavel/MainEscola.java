@@ -26,18 +26,11 @@ public class MainEscola {
             /*Hashmap é uma lista que identifica valores(V) a partir de uma chave (K)*/
             HashMap<String, List<Aluno>> alunosMap = new HashMap<>();
 
-        /*
-        //Lista de alunos por status
-        List<Aluno> alunosAprovados = new ArrayList<Aluno>();
-        List<Aluno> alunosRecuperacao = new ArrayList<Aluno>();
-        List<Aluno> alunosReprovados = new ArrayList<Aluno>();
-        */
-
             //Automatizando o processo de inserção de dados na lista de alunos
             for (int i = 0; i < 5; i++) {
 
                 /* Objeto ainda não existe na memoria, apenas existe uma referência a classe */
-                Aluno aluno1;
+                //Aluno aluno1;
 
                 /*- Objeto criado na memoria a partir da palavra reservada "new"
                  * - new Aluno(); Esse metodo se chama "instancia" de um objeto.
@@ -159,7 +152,7 @@ public class MainEscola {
                     alunosList.set(pos, alunoNovo);
 
                     //Atribui o novo aluno da lista ao objeto aluno
-                    aluno = alunosList.get(pos);
+                    //aluno = alunosList.get(pos);
                 }
             }
         }
