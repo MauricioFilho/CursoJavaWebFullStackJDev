@@ -157,12 +157,13 @@ public class Aluno {
 
     public String getAlunoAprovado(){
 
-        if(getMedia() <= 69){
-
-            return "O Aluno reprovou!";
-
-        } else {
-
+        if(getMedia() >= 50){
+            if(getMedia() >= 70 ) {
+                return "O Aluno está aprovado!";
+            } else {
+                return "O Aluno está em recuperação!";
+            }
+        }else {
             return "O Aluno aprovou!";
         }
     }
