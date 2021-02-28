@@ -5,19 +5,19 @@ import lombok.ToString;
 import java.util.Objects;
 
 @ToString(callSuper = true) //callSuper = true se existir superClasse herdada,
-                            // includeFieldNames = true para incluir os campos da propria classe.
+// includeFieldNames = true para incluir os campos da propria classe.
 public class Diretor extends Pessoa {
+
     /*ATRIBUTES*/
     private String registroEducacao;
     private String tempoDirecao;
     private String titulacao;
 
+    /*CONSTRUCTORS*/
     public Diretor() {
 
     }
 
-
-    /*CONSTRUCTORS*/
     public Diretor(String registroEducacao, String tempoDirecao, String titulacao) {
         super();
         this.registroEducacao = registroEducacao;

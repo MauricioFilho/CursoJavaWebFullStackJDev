@@ -7,8 +7,9 @@ import java.util.Objects;
 
 @ToString(includeFieldNames = true)
 public abstract class Pessoa { //classe abstrata, que não faz sentido ser instanciada (e nem é possivel)
-                               //Superclasse costuma ser uma classe mais generica, não reprensenta uma entidade solida.
+    //Superclasse costuma ser uma classe mais generica, não reprensenta uma entidade solida.
 
+    /*ATRIBUTES*/
     private String nome;
     private int idade;
     private String dataNascimento;
@@ -17,6 +18,7 @@ public abstract class Pessoa { //classe abstrata, que não faz sentido ser insta
     private String nomePai;
     private String nomeMae;
 
+    /*CONSTRUCTORS*/
     public Pessoa(){
 
     }
@@ -31,6 +33,7 @@ public abstract class Pessoa { //classe abstrata, que não faz sentido ser insta
         this.nomeMae = nomeMae;
     }
 
+    /*GETTERS AND SETTERS*/
     public String getNome() {
         return nome;
     }
@@ -87,7 +90,7 @@ public abstract class Pessoa { //classe abstrata, que não faz sentido ser insta
         this.nomeMae = nomeMae;
     }
 
-    /*metodos*/
+    /*METHODS*/
 
     //Verifica se a pessoa é maior de idade
     public boolean pessoaMaioridade(){

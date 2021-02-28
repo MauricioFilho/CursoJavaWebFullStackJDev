@@ -2,6 +2,7 @@ package br.com.mauriciogoulart.executavel;
 
 import br.com.mauriciogoulart.classes.Aluno;
 import br.com.mauriciogoulart.classes.Disciplina;
+import br.com.mauriciogoulart.classes.Secretario;
 import br.com.mauriciogoulart.constantes.StatusAluno;
 
 import javax.swing.*;
@@ -17,8 +18,11 @@ public class MainEscola {
         String login = JOptionPane.showInputDialog("Informe o login");
         String senha = JOptionPane.showInputDialog("Informe a senha");
 
-        if(login.equals("Admin") &&
-                senha.equals("Admin")) {
+        Secretario secretario = new Secretario();
+        secretario.setUsuario(login);
+        secretario.setSenha(senha);
+
+        if(secretario.autenticar()) {
 
             //Cria lista de alunos
             List<Aluno> alunosList = new ArrayList<>();
@@ -155,6 +159,8 @@ public class MainEscola {
                     //aluno = alunosList.get(pos);
                 }
             }
+        } else {
+            JOptionPane.showMessageDialog(null, "Usuario ou senha invalidas!");
         }
     }
 }

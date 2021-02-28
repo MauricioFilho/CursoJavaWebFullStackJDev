@@ -8,7 +8,7 @@ import java.util.List;
 
 
 @ToString(callSuper = true) //callSuper = true se existir superClasse herdada,
-                            // includeFieldNames = true para incluir os campos da propria classe.
+// includeFieldNames = true para incluir os campos da propria classe.
 public class Aluno extends Pessoa {
 
     //atributos da classe aluno
@@ -67,8 +67,8 @@ public class Aluno extends Pessoa {
         double somaTotal = 0.0;
 
         for (Disciplina disciplina:
-             disciplinas) {
-             somaTotal += disciplina.getNota();
+                disciplinas) {
+            somaTotal += disciplina.getNota();
         }
 
         return somaTotal / disciplinas.size();
