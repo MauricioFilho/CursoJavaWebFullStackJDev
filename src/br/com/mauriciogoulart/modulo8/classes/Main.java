@@ -62,9 +62,9 @@ public class Main {
             //aluno.getDisciplina().add(disciplina4); //adicionado a lista
 
 
-            /*Adicionando elementos em uma lista de forma dinamica*/
+            /*Adicionando elementos em uma lista de disciplinas de forma dinamica*/
 
-            for (int pos = 1; pos <= 4; pos++) {
+            for (int pos = 1; pos <= 1; pos++) {
 
                 String nomeDisciplina = JOptionPane.showInputDialog("Digite nome da disciplina " + pos);
                 double notaDisciplina = Double.parseDouble(JOptionPane.showInputDialog("Digite a nota " + pos));
@@ -111,6 +111,20 @@ public class Main {
             Aluno aluno = alunosList.get(pos); //recupera o aluno conforme o index (pos) passado por parametro.
             System.out.println("Nome aluno: " + aluno.getNome()); //imprime o nome do aluno respectivamente
 
+            //Trocar aluno por posição
+            if(aluno.getNome().equalsIgnoreCase("Mauricio")){
+
+                //Cria novo aluno a ser trocado
+                Aluno alunoNovo = new Aluno("João");
+                Disciplina disciplina = new Disciplina(55, "Matematica");
+                alunoNovo.getDisciplina().add(disciplina);
+
+                //Adiciona elemento por posição
+                alunosList.set(pos, alunoNovo);
+
+                //Atribui o novo aluno da lista ao objeto aluno
+                aluno = alunosList.get(pos);
+            }
         }
     }
 }
