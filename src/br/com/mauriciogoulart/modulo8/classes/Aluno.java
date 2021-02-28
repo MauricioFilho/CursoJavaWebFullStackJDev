@@ -21,11 +21,8 @@ public class Aluno {
     private String serieMatriculado;
 
 
-    /*cria uma lista de disciplinas*/
+    /*Cria uma lista de disciplinas*/
     private List<Disciplina> disciplinas = new ArrayList<>();
-
-
-
 
     /*Construtores*/
 
@@ -138,9 +135,9 @@ public class Aluno {
         this.disciplinas = disciplina;
     }
 
-    /*metodos*/
+    /*Métodos*/
 
-    //retorna a média das notas
+    //Retorna a média das notas
 
     public double getMedia(){
 
@@ -154,7 +151,7 @@ public class Aluno {
         return somaTotal / disciplinas.size();
     }
 
-    //verifica o resultado final do aluno
+    //Verifica o resultado final do aluno
 
     public String getAlunoAprovado(){
 
@@ -165,11 +162,11 @@ public class Aluno {
                 return "O Aluno está em recuperação!";
             }
         }else {
-            return "O Aluno aprovou!";
+            return "O Aluno reprovou!";
         }
     }
 
-    //metodo toString
+    //Metodo toString
 
     @Override
     public String toString() {
@@ -187,7 +184,7 @@ public class Aluno {
                 '}';
     }
 
-    //metodos equals e hashcode
+    //Metodos equals e hashcode
 
 
     @Override

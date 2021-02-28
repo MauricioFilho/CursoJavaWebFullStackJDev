@@ -1,5 +1,7 @@
 package br.com.mauriciogoulart.modulo8.classes;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class Disciplina {
