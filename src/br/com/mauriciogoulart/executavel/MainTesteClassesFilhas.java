@@ -9,18 +9,26 @@ public class MainTesteClassesFilhas {
 
     public static void main(String[] args) {
 
-        //metodos get e set herdados da classe pai "Pessoa"
+        //metodos herdados da classe pai "Pessoa"
         Aluno aluno = new Aluno();
         aluno.setNome("Mauricio Goulart");
+        aluno.setIdade(21);
+
         System.out.println("Aluno ->" + aluno.toString());
+        System.out.println(aluno.pessoaMaioridade() + " - " + aluno.msgMaioridade());
 
         Diretor diretor = new Diretor();
         diretor.setNome("Priscila Costa");
+        diretor.setIdade(50);
+
         System.out.println("Diretora -> " + diretor.toString());
+        diretor.pessoaMaioridade();
 
         Secretario secretario = new Secretario();
         secretario.setNome("Fabiani Martinhago");
-        System.out.println("Secretária -> " + secretario.toString());
+        secretario.setIdade(34);
 
+        System.out.println("Secretária -> " + secretario.toString());
+        secretario.pessoaMaioridade();
     }
 }

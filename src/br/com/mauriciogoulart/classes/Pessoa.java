@@ -87,7 +87,19 @@ public class Pessoa {
         this.nomeMae = nomeMae;
     }
 
+    /*metodos*/
 
+    //Verifica se a pessoa é maior de idade
+    public boolean pessoaMaioridade(){
+
+        if(this.idade >= 18) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /*hashcode e equals*/
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

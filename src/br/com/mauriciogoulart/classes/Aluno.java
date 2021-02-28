@@ -89,14 +89,17 @@ public class Aluno extends Pessoa {
         }
     }
 
-    //Metodos equals e hashcode
+    /*metodos*/
 
+    //sobrescrevendo metodos da classe pai
+    @Override
+    public boolean pessoaMaioridade() {
+        return getIdade() >= 21;
+    }
 
+    public String msgMaioridade(){
 
-    //Metodo toString
-
-
-
-
+        return this.pessoaMaioridade() ? "O aluno é maior de idade" : "O aluno é menor de idade";
+    }
 }
 
