@@ -16,19 +16,22 @@ public class MainTesteClassesFilhas {
 
         System.out.println("Aluno ->" + aluno.toString());
         System.out.println(aluno.pessoaMaioridade() + " - " + aluno.msgMaioridade());
+        System.out.println("Salario do aluno -> " + aluno.salario());
 
         Diretor diretor = new Diretor();
         diretor.setNome("Priscila Costa");
         diretor.setIdade(50);
 
         System.out.println("Diretora -> " + diretor.toString());
-        diretor.pessoaMaioridade();
+        System.out.println(diretor.pessoaMaioridade());
+        System.out.println("Salario da diretora -> " + diretor.salario());
 
         Secretario secretario = new Secretario();
         secretario.setNome("Fabiani Martinhago");
         secretario.setIdade(34);
 
         System.out.println("Secretária -> " + secretario.toString());
-        secretario.pessoaMaioridade();
+        System.out.println(aluno.pessoaMaioridade());
+        System.out.println("Salario da secretária -> " + secretario.salario());
     }
 }

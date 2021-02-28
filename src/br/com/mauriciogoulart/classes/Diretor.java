@@ -7,7 +7,7 @@ import java.util.Objects;
 @ToString(callSuper = true) //callSuper = true se existir superClasse herdada,
                             // includeFieldNames = true para incluir os campos da propria classe.
 public class Diretor extends Pessoa {
-
+    /*ATRIBUTES*/
     private String registroEducacao;
     private String tempoDirecao;
     private String titulacao;
@@ -16,6 +16,8 @@ public class Diretor extends Pessoa {
 
     }
 
+
+    /*CONSTRUCTORS*/
     public Diretor(String registroEducacao, String tempoDirecao, String titulacao) {
         super();
         this.registroEducacao = registroEducacao;
@@ -23,6 +25,7 @@ public class Diretor extends Pessoa {
         this.titulacao = titulacao;
     }
 
+    /*GETTERS AND SETTERS*/
     public String getRegistroEducacao() {
         return registroEducacao;
     }
@@ -34,7 +37,6 @@ public class Diretor extends Pessoa {
     public String getTempoDirecao() {
         return tempoDirecao;
     }
-
     public void setTempoDirecao(String tempoDirecao) {
         this.tempoDirecao = tempoDirecao;
     }
@@ -47,6 +49,15 @@ public class Diretor extends Pessoa {
         this.titulacao = titulacao;
     }
 
+    /*METHODS*/
+
+    //metodo abstrato herdado da classe pai
+    @Override
+    public double salario() {
+        return 2600 * 1.10;
+    }
+
+    /*HASHCODE AND EQUALS*/
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

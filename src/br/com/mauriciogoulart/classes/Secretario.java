@@ -22,6 +22,7 @@ public class Secretario extends Pessoa {
 
     }
 
+
     public String getRegistro() {
         return registro;
     }
@@ -46,6 +47,14 @@ public class Secretario extends Pessoa {
         this.experiencia = experiencia;
     }
 
+    /*METHODS*/
+    //metodo abstrato herdado da classe pai
+    @Override
+    public double salario() {
+        return 1670;
+    }
+
+    /*HASHCODE AND EQUALS*/
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

@@ -4,10 +4,10 @@ import lombok.ToString;
 
 import java.util.Objects;
 
-@ToString(includeFieldNames = true)
-public class Pessoa {
 
-    //Superclasse costuma ser uma classe mais generica, não reprensenta uma entidade solida.
+@ToString(includeFieldNames = true)
+public abstract class Pessoa { //classe abstrata, que não faz sentido ser instanciada (e nem é possivel)
+                               //Superclasse costuma ser uma classe mais generica, não reprensenta uma entidade solida.
 
     private String nome;
     private int idade;
@@ -98,8 +98,10 @@ public class Pessoa {
             return false;
         }
     }
+    //Implementação dos metodos abstratos são obrigatórios nas classes filhas
+    public abstract double salario();
 
-    /*hashcode e equals*/
+    /*HASHCODE AND EQUALS*/
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

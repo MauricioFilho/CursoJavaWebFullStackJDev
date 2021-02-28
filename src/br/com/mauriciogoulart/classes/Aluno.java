@@ -74,6 +74,8 @@ public class Aluno extends Pessoa {
         return somaTotal / disciplinas.size();
     }
 
+    /*METHODS*/
+
     //Verifica o resultado final do aluno
 
     public String getAlunoAprovado(){
@@ -89,12 +91,15 @@ public class Aluno extends Pessoa {
         }
     }
 
-    /*metodos*/
-
     //sobrescrevendo metodos da classe pai
     @Override
     public boolean pessoaMaioridade() {
         return getIdade() >= 21;
+    }
+    //metodo abstrato herdado da classe pai
+    @Override
+    public double salario() {
+        return 1250;
     }
 
     public String msgMaioridade(){
