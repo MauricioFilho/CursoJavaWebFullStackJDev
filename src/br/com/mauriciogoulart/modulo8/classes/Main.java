@@ -93,17 +93,24 @@ public class Main {
             alunosList.add(aluno); //adiciona o aluno na lista de alunos.
         }
 
-        //foreach percorrendo toda a lista e imprimindo os dados necessários
-
+        //foreach percorrendo toda a lista e imprimindo os dados
         for (Aluno aluno: alunosList
-             ) {
-           //Executar o bloco quando encontrar um nome especifico.
-           if(aluno.getNome().equalsIgnoreCase(JOptionPane.showInputDialog(null,"Nome do aluno"))){
-               System.out.println("Detalhes -> " + aluno);
-               System.out.println("Média aluno: " + aluno.getMedia());
-               System.out.println("Situação do aluno: " + aluno.getAlunoAprovado());
-               break; //para a aplicação quando encontra o nome Mauricio
-           }
+        ) {
+            //remove aluno por nome
+            if(JOptionPane.showConfirmDialog(null,"Deseja remover o aluno: " + aluno.getNome()) == 0) {
+                alunosList.remove(aluno);
+            } else  { //Imprime os dados na tela
+                System.out.println("Detalhes -> " + aluno);
+                System.out.println("Média aluno: " + aluno.getMedia());
+                System.out.println("Situação do aluno: " + aluno.getAlunoAprovado());
+            }
+        }
+        //Percorrendo a lista utilizando o for e o index de cada elemento
+        for(int pos = 0; pos < alunosList.size(); pos++){
+
+            Aluno aluno = alunosList.get(pos); //recupera o aluno conforme o index (pos) passado por parametro.
+            System.out.println("Nome aluno: " + aluno.getNome()); //imprime o nome do aluno respectivamente
+
         }
     }
 }
