@@ -1,12 +1,20 @@
 package br.com.mauriciogoulart.classes;
 
+import lombok.ToString;
+
 import java.util.Objects;
 
+@ToString(callSuper = true) //callSuper = true se existir superClasse herdada,
+                            // includeFieldNames = true para incluir os campos da propria classe.
 public class Diretor extends Pessoa {
 
     private String registroEducacao;
     private String tempoDirecao;
     private String titulacao;
+
+    public Diretor() {
+
+    }
 
     public Diretor(String registroEducacao, String tempoDirecao, String titulacao) {
         super();
@@ -40,15 +48,6 @@ public class Diretor extends Pessoa {
     }
 
     @Override
-    public String toString() {
-        return "Diretor{" +
-                "RegistroEducacao='" + registroEducacao + '\'' +
-                ", TempoDirecao='" + tempoDirecao + '\'' +
-                ", Titulacao='" + titulacao + '\'' +
-                '}';
-    }
-
-    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -60,4 +59,5 @@ public class Diretor extends Pessoa {
     public int hashCode() {
         return Objects.hash(registroEducacao);
     }
+
 }

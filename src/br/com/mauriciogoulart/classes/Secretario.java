@@ -1,7 +1,11 @@
 package br.com.mauriciogoulart.classes;
 
+import lombok.ToString;
+
 import java.util.Objects;
 
+@ToString(callSuper = true) //callSuper = true se existir superClasse herdada,
+                            // includeFieldNames = true para incluir os campos da propria classe.
 public class Secretario extends Pessoa {
 
     private String registro;
@@ -12,6 +16,10 @@ public class Secretario extends Pessoa {
         this.registro = registro;
         this.nivelCargo = nivelCargo;
         this.experiencia = experiencia;
+    }
+
+    public Secretario() {
+
     }
 
     public String getRegistro() {
@@ -36,15 +44,6 @@ public class Secretario extends Pessoa {
 
     public void setExperiencia(String experiencia) {
         this.experiencia = experiencia;
-    }
-
-    @Override
-    public String toString() {
-        return "Secretario{" +
-                "registro='" + registro + '\'' +
-                ", nivelCargo='" + nivelCargo + '\'' +
-                ", experiencia='" + experiencia + '\'' +
-                '}';
     }
 
     @Override

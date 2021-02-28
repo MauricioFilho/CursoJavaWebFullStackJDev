@@ -1,5 +1,7 @@
-package br.com.mauriciogoulart.classes;
+package br.com.mauriciogoulart.executavel;
 
+import br.com.mauriciogoulart.classes.Aluno;
+import br.com.mauriciogoulart.classes.Disciplina;
 import br.com.mauriciogoulart.constantes.StatusAluno;
 
 import javax.swing.*;
@@ -7,7 +9,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class Main {
+public class MainEscola {
 
     public static void main(String[] args) {
 

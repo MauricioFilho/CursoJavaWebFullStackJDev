@@ -1,11 +1,14 @@
 package br.com.mauriciogoulart.classes;
 
 import br.com.mauriciogoulart.constantes.StatusAluno;
+import lombok.ToString;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
+
+@ToString(callSuper = true) //callSuper = true se existir superClasse herdada,
+                            // includeFieldNames = true para incluir os campos da propria classe.
 public class Aluno extends Pessoa {
 
     //atributos da classe aluno
@@ -86,11 +89,13 @@ public class Aluno extends Pessoa {
         }
     }
 
+    //Metodos equals e hashcode
+
+
+
     //Metodo toString
 
 
-
-    //Metodos equals e hashcode
 
 
 }

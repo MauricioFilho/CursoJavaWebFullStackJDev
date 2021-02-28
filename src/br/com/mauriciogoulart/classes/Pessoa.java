@@ -1,13 +1,18 @@
 package br.com.mauriciogoulart.classes;
 
+import lombok.ToString;
+
 import java.util.Objects;
 
+@ToString(includeFieldNames = true)
 public class Pessoa {
+
+    //Superclasse costuma ser uma classe mais generica, não reprensenta uma entidade solida.
 
     private String nome;
     private int idade;
     private String dataNascimento;
-    private String RegistroGeral;
+    private String registroGeral;
     private String numeroCpf;
     private String nomePai;
     private String nomeMae;
@@ -20,7 +25,7 @@ public class Pessoa {
         this.nome = nome;
         this.idade = idade;
         this.dataNascimento = dataNascimento;
-        RegistroGeral = registroGeral;
+        this.registroGeral = registroGeral;
         this.numeroCpf = numeroCpf;
         this.nomePai = nomePai;
         this.nomeMae = nomeMae;
@@ -51,11 +56,11 @@ public class Pessoa {
     }
 
     public String getRegistroGeral() {
-        return RegistroGeral;
+        return registroGeral;
     }
 
     public void setRegistroGeral(String registroGeral) {
-        RegistroGeral = registroGeral;
+        this.registroGeral = registroGeral;
     }
 
     public String getNumeroCpf() {
@@ -82,18 +87,6 @@ public class Pessoa {
         this.nomeMae = nomeMae;
     }
 
-    @Override
-    public String toString() {
-        return "Pessoa{" +
-                "nome='" + nome + '\'' +
-                ", idade=" + idade +
-                ", dataNascimento='" + dataNascimento + '\'' +
-                ", RegistroGeral='" + RegistroGeral + '\'' +
-                ", numeroCpf='" + numeroCpf + '\'' +
-                ", nomePai='" + nomePai + '\'' +
-                ", nomeMae='" + nomeMae + '\'' +
-                '}';
-    }
 
     @Override
     public boolean equals(Object o) {
