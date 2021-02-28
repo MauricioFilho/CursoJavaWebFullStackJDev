@@ -2,6 +2,7 @@ package br.com.mauriciogoulart.modulo8.classes;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Aluno {
 
@@ -168,5 +169,38 @@ public class Aluno {
         }
     }
 
+    //metodo toString
+
+    @Override
+    public String toString() {
+        return "Aluno{" +
+                "idade=" + idade +
+                ", nome='" + nome + '\'' +
+                ", dataNascimento='" + dataNascimento + '\'' +
+                ", registroGeral='" + registroGeral + '\'' +
+                ", numeroCpf='" + numeroCpf + '\'' +
+                ", nomeMae='" + nomeMae + '\'' +
+                ", nomePai='" + nomePai + '\'' +
+                ", dataMatricula='" + dataMatricula + '\'' +
+                ", nomeEscola='" + nomeEscola + '\'' +
+                ", serieMatriculado='" + serieMatriculado + '\'' +
+                '}';
+    }
+
+    //metodos equals e hashcode
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Aluno aluno = (Aluno) o;
+        return nome.equals(aluno.nome) && numeroCpf.equals(aluno.numeroCpf);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nome, numeroCpf);
+    }
 }
 
