@@ -14,20 +14,17 @@ public class Secretario extends Pessoa implements PermitirAcesso {
     private String nivelCargo;
     private String experiencia;
 
-    private String usuario;
-    private String senha;
 
     /*CONSTRUCTORS*/
     public Secretario() {
 
     }
 
-    public Secretario(String registro, String nivelCargo, String experiencia, String login, String senha) {
+    public Secretario(String registro, String nivelCargo, String experiencia) {
         this.registro = registro;
         this.nivelCargo = nivelCargo;
         this.experiencia = experiencia;
-        this.usuario = login;
-        this.senha = senha;
+
     }
 
     /*GETTERS AND SETTERS*/
@@ -55,22 +52,6 @@ public class Secretario extends Pessoa implements PermitirAcesso {
         this.experiencia = experiencia;
     }
 
-    public String getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
-    }
-
-    public String getSenha() {
-        return senha;
-    }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
-
     /*METHODS*/
     //metodo abstrato herdado da classe pai
     @Override
@@ -80,7 +61,7 @@ public class Secretario extends Pessoa implements PermitirAcesso {
 
     //Metodo para autenticar usuario
     @Override
-    public boolean autenticar() {
+    public boolean autenticar(String usuario, String senha) {
         return usuario.equals("Admin") && senha.equals("Admin");
     }
 

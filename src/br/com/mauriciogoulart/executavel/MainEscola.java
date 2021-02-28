@@ -4,6 +4,7 @@ import br.com.mauriciogoulart.classes.Aluno;
 import br.com.mauriciogoulart.classes.Disciplina;
 import br.com.mauriciogoulart.classes.Secretario;
 import br.com.mauriciogoulart.constantes.StatusAluno;
+import br.com.mauriciogoulart.interfaces.PermitirAcesso;
 
 import javax.swing.*;
 import java.util.ArrayList;
@@ -18,11 +19,7 @@ public class MainEscola {
         String login = JOptionPane.showInputDialog("Informe o login");
         String senha = JOptionPane.showInputDialog("Informe a senha");
 
-        Secretario secretario = new Secretario();
-        secretario.setUsuario(login);
-        secretario.setSenha(senha);
-
-        if(secretario.autenticar()) {
+        if(new Secretario().autenticar(login, senha)) {
 
             //Cria lista de alunos
             List<Aluno> alunosList = new ArrayList<>();
