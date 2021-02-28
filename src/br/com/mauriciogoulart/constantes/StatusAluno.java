@@ -1,4 +1,4 @@
-package br.com.mauriciogoulart.modulo8.constantes;
+package br.com.mauriciogoulart.constantes;
 
 public class StatusAluno {
 

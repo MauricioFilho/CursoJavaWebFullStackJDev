@@ -1,6 +1,6 @@
-package br.com.mauriciogoulart.modulo8.classes;
+package br.com.mauriciogoulart.classes;
 
-import br.com.mauriciogoulart.modulo8.constantes.StatusAluno;
+import br.com.mauriciogoulart.constantes.StatusAluno;
 
 import javax.swing.*;
 import java.util.ArrayList;
@@ -46,9 +46,6 @@ public class Main {
                 aluno.setNome(JOptionPane.showInputDialog(null, "Informe o nome do " + (i + 1) + "º aluno.")); //setando valores no objeto aluno pelo metodo set
                 System.out.println("Nome do aluno é: " + aluno.getNome()); //recuperando os valores setados pelo metodo set utilizando o metodo get
 
-                Aluno aluno5 = new Aluno("Maria"); /*Criando o objeto utilizando o construtor com parametros*/
-
-                Aluno aluno6 = new Aluno("José", 50); /*Objeto criado passando multiplos dados por parametro para o construtor*/
 
                 //Adicionando elementos em uma lista
 
