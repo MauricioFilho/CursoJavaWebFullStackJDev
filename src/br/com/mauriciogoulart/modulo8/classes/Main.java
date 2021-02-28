@@ -97,10 +97,13 @@ public class Main {
 
         for (Aluno aluno: alunosList
              ) {
-           System.out.println("Detalhes -> " + aluno);
-           System.out.println("Média aluno: " + aluno.getMedia());
-           System.out.println("Situação do aluno: " + aluno.getAlunoAprovado());
+           //Executar o bloco quando encontrar um nome especifico.
+           if(aluno.getNome().equalsIgnoreCase(JOptionPane.showInputDialog(null,"Nome do aluno"))){
+               System.out.println("Detalhes -> " + aluno);
+               System.out.println("Média aluno: " + aluno.getMedia());
+               System.out.println("Situação do aluno: " + aluno.getAlunoAprovado());
+               break; //para a aplicação quando encontra o nome Mauricio
+           }
         }
-
     }
 }
