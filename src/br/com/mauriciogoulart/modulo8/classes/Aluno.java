@@ -1,5 +1,7 @@
 package br.com.mauriciogoulart.modulo8.classes;
 
+import br.com.mauriciogoulart.modulo8.constantes.StatusAluno;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -157,12 +159,12 @@ public class Aluno {
 
         if(getMedia() >= 50){
             if(getMedia() >= 70 ) {
-                return "O Aluno está aprovado!";
+                return StatusAluno.APROVADO;
             } else {
-                return "O Aluno está em recuperação!";
+                return StatusAluno.RECUPERACAO;
             }
         }else {
-            return "O Aluno reprovou!";
+            return StatusAluno.REPROVADO;
         }
     }
 
