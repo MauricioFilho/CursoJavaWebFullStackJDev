@@ -1,5 +1,7 @@
 package br.com.mauriciogoulart.modulo8.classes;
 
+import br.com.mauriciogoulart.modulo8.constantes.StatusAluno;
+
 import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,8 +13,14 @@ public class Main {
         //Cria lista de alunos
         List<Aluno> alunosList = new ArrayList<Aluno>();
 
-        //Automatizando o processo de inserção de dados
-        for (int i = 0; i < 2; i++) {
+        List<Aluno> alunosAprovados = new ArrayList<Aluno>();
+
+        List<Aluno> alunosRecuperacao = new ArrayList<Aluno>();
+
+        List<Aluno> alunosReprovados = new ArrayList<Aluno>();
+
+        //Automatizando o processo de inserção de dados na lista de alunos
+        for (int i = 0; i < 5; i++) {
 
             /* Objeto ainda não existe na memoria, apenas existe uma referência a classe */
 
@@ -92,6 +100,26 @@ public class Main {
 
             alunosList.add(aluno); //adiciona o aluno na lista de alunos.
         }
+
+        //Separa os alunos por seu status
+        for (Aluno aluno: alunosList
+        ) {
+            if(aluno.getAlunoAprovado().equalsIgnoreCase(StatusAluno.APROVADO)){
+                alunosAprovados.add(aluno);
+            } else if (aluno.getAlunoAprovado().equalsIgnoreCase(StatusAluno.RECUPERACAO)){
+                alunosRecuperacao.add(aluno);
+            }
+            else {
+                alunosReprovados.add(aluno);
+            }
+        }
+        //Imprime a quantidade de alunos por status
+        System.out.println(
+                "Quantidade de alunos aprovados: " + alunosAprovados.size() +
+                        "\nQuantidade de alunos em recuperação: " + alunosRecuperacao.size() +
+                        "\nQuantidade de alunos reprovados: " + alunosReprovados.size()
+        );
+
 
         //foreach percorrendo toda a lista e imprimindo os dados
         for (Aluno aluno: alunosList
