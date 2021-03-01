@@ -22,12 +22,11 @@ public class MainEscola {
         String login = JOptionPane.showInputDialog("Informe o login");
         String senha = JOptionPane.showInputDialog("Informe a senha");
 
-        File arquivoExceptionTeste = new File("arquivo.txt");
-
-
 
         try {
-            Scanner scan = new Scanner(arquivoExceptionTeste);
+            /*Gerando erro FileNotFoundException*/
+            //File arquivoExceptionTeste = new File("arquivo.txt");
+            //Scanner scan = new Scanner(arquivoExceptionTeste);
 
             if (new FuncaoAutenticacao(new Secretario(login, senha)).autenticar()) {
 
@@ -191,11 +190,21 @@ public class MainEscola {
             JOptionPane.showMessageDialog(null, "Erro na conversão de números -> " + e.getMessage());
         /* tipos de erros comuns durante o desenvolvimento */
         }catch(NullPointerException e){
+
             e.printStackTrace();
             JOptionPane.showMessageDialog(null, "Erro NullPointerException -> " + e.getMessage());
-        } catch (FileNotFoundException e) {
+
+        } /*catch (FileNotFoundException e) {
+
             e.printStackTrace();
             JOptionPane.showMessageDialog(null, "Erro FileNotFoundException -> " + e.getMessage());
+
+        }*/
+        finally { /* Sempre executado ao final do processo, ocorrendo erro ou não  (Não é obrigatório) -
+                         Normalmente utilizado para executar alguma tarefa após a realização de um bloco de códigos*/
+
+            JOptionPane.showMessageDialog(null, "Obrigado por aprender Java!");
+
         }
     }
 }
