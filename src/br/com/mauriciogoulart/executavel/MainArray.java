@@ -1,5 +1,8 @@
 package br.com.mauriciogoulart.executavel;
 
+import br.com.mauriciogoulart.classes.Aluno;
+import br.com.mauriciogoulart.classes.Disciplina;
+
 public class MainArray {
 
     public static void main(String[] args) {
@@ -27,5 +30,19 @@ public class MainArray {
             System.out.println(nota);
 
         }
+
+        /*testando arrays*/
+        Aluno aluno = new Aluno();
+        aluno.setNome("Mauricio");
+        aluno.setNomeEscola("JDev Treinamentos");
+
+        Disciplina disciplina = new Disciplina();
+        disciplina.setDisciplina("Curso Java");
+
+        double[] notasAluno = {1,2,3,4};
+        disciplina.setNotas(notasAluno);
+
+        aluno.getDisciplina().add(disciplina);
+
     }
 }

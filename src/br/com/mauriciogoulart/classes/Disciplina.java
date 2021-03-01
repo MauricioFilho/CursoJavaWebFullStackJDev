@@ -1,27 +1,29 @@
 package br.com.mauriciogoulart.classes;
 
+import lombok.ToString;
 import java.util.Objects;
-
+@ToString
 public class Disciplina {
 
-    private double nota;
+    private double[] notas = new double[4];
     private String disciplina;
 
-    public Disciplina(){
+    public Disciplina()
+    {
 
     }
 
-    public Disciplina(double nota, String disciplina) {
-        this.nota = nota;
+    public Disciplina(double[] nota, String disciplina) {
+        this.notas = nota;
         this.disciplina = disciplina;
     }
 
-    public double getNota() {
-        return nota;
+    public double[] getNotas() {
+        return notas;
     }
 
-    public void setNota(double nota) {
-        this.nota = nota;
+    public void setNotas(double[] notas) {
+        this.notas = notas;
     }
 
     public String getDisciplina() {
@@ -32,17 +34,30 @@ public class Disciplina {
         this.disciplina = disciplina;
     }
 
+    /*METHODS*/
+
+    public double getMediaNotas(){
+
+        double somaTotalNotas = 0.0;
+
+        for (int i = 0; i < notas.length; i++) {
+
+            somaTotalNotas += notas[i];
+
+        }
+        return somaTotalNotas / notas.length;
+    }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Disciplina that = (Disciplina) o;
-        return Double.compare(that.nota, nota) == 0 && disciplina.equals(that.disciplina);
+        return Objects.equals(disciplina, that.disciplina);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(nota, disciplina);
+        return Objects.hash(disciplina);
     }
 }

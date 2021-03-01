@@ -48,7 +48,29 @@ public class Aluno extends Pessoa {
     /*Getters é para resgatar os valores adicionados no Setter*/
     /*this referencia a classe*/
 
+    public String getDataMatricula() {
+        return dataMatricula;
+    }
 
+    public void setDataMatricula(String dataMatricula) {
+        this.dataMatricula = dataMatricula;
+    }
+
+    public String getNomeEscola() {
+        return nomeEscola;
+    }
+
+    public void setNomeEscola(String nomeEscola) {
+        this.nomeEscola = nomeEscola;
+    }
+
+    public String getSerieMatriculado() {
+        return serieMatriculado;
+    }
+
+    public void setSerieMatriculado(String serieMatriculado) {
+        this.serieMatriculado = serieMatriculado;
+    }
 
     public List<Disciplina> getDisciplina() {
         return disciplinas;
@@ -64,14 +86,15 @@ public class Aluno extends Pessoa {
 
     public double getMedia(){
 
-        double somaTotal = 0.0;
+        double mediaNotas = 0.0;
+        int pos = 0;
 
         for (Disciplina disciplina:
                 disciplinas) {
-            somaTotal += disciplina.getNota();
+            mediaNotas += disciplina.getMediaNotas();
         }
 
-        return somaTotal / disciplinas.size();
+        return mediaNotas;
     }
 
     /*METHODS*/

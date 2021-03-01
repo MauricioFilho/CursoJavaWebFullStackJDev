@@ -4,7 +4,6 @@ import br.com.mauriciogoulart.classes.Aluno;
 import br.com.mauriciogoulart.classes.Disciplina;
 import br.com.mauriciogoulart.classes.Secretario;
 import br.com.mauriciogoulart.constantes.StatusAluno;
-import br.com.mauriciogoulart.excecoes.ExcecaoProcessarNota;
 import br.com.mauriciogoulart.util.FuncaoAutenticacao;
 
 import javax.swing.*;
@@ -55,25 +54,25 @@ public class MainEscola {
                     //Adicionando de forma estatica
                     Disciplina disciplina1 = new Disciplina();
                     disciplina1.setDisciplina("Banco de dados");
-                    disciplina1.setNota(90);
+                    disciplina1.setNotas(90);
 
                     //aluno.getDisciplina().add(disciplina1); //adicionado a lista
 
                     Disciplina disciplina2 = new Disciplina();
                     disciplina2.setDisciplina("Matematica");
-                    disciplina2.setNota(80);
+                    disciplina2.setNotas(80);
 
                     //aluno.getDisciplina().add(disciplina2); //adicionado a lista
 
                     Disciplina disciplina3 = new Disciplina();
                     disciplina3.setDisciplina("Geografia");
-                    disciplina3.setNota(97);
+                    disciplina3.setNotas(97);
 
                     //aluno.getDisciplina().add(disciplina3); //adicionado a lista
 
                     Disciplina disciplina4 = new Disciplina();
                     disciplina4.setDisciplina("Java Web");
-                    disciplina4.setNota(70);
+                    disciplina4.setNotas(70);
 
                     //aluno.getDisciplina().add(disciplina4); //adicionado a lista
 
@@ -87,7 +86,7 @@ public class MainEscola {
                         Disciplina disciplina = new Disciplina();
 
                         disciplina.setDisciplina(nomeDisciplina);
-                        disciplina.setNota(notaDisciplina);
+                        disciplina.setNotas(notaDisciplina);
 
                         aluno.getDisciplina().add(disciplina);
                     }
