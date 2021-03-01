@@ -4,6 +4,7 @@ import br.com.mauriciogoulart.classes.Aluno;
 import br.com.mauriciogoulart.classes.Disciplina;
 import br.com.mauriciogoulart.classes.Secretario;
 import br.com.mauriciogoulart.constantes.StatusAluno;
+import br.com.mauriciogoulart.excecoes.ExcecaoProcessarNota;
 import br.com.mauriciogoulart.util.FuncaoAutenticacao;
 
 import javax.swing.*;
@@ -22,12 +23,8 @@ public class MainEscola {
         String login = JOptionPane.showInputDialog("Informe o login");
         String senha = JOptionPane.showInputDialog("Informe a senha");
 
-
         try {
-            /*Gerando erro FileNotFoundException*/
-            //File arquivoExceptionTeste = new File("arquivo.txt");
-            //Scanner scan = new Scanner(arquivoExceptionTeste);
-
+            lerArquivo();
             if (new FuncaoAutenticacao(new Secretario(login, senha)).autenticar()) {
 
                 //Cria lista de alunos
@@ -199,12 +196,25 @@ public class MainEscola {
             e.printStackTrace();
             JOptionPane.showMessageDialog(null, "Erro FileNotFoundException -> " + e.getMessage());
 
-        }*/
-        finally { /* Sempre executado ao final do processo, ocorrendo erro ou não  (Não é obrigatório) -
+        }*/ catch (ExcecaoProcessarNota e){
+
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null,"Erro Exceção personalizada -> " + e.getMessage());
+
+        }finally { /* Sempre executado ao final do processo, ocorrendo erro ou não  (Não é obrigatório) -
                          Normalmente utilizado para executar alguma tarefa após a realização de um bloco de códigos*/
 
             JOptionPane.showMessageDialog(null, "Obrigado por aprender Java!");
 
+        }
+    }
+    /*metodo de teste para ler um arquivo e lançar uma exceção personalizada para o bloco de código*/
+    public static void lerArquivo() throws ExcecaoProcessarNota{
+        try{
+            File arquivoExceptionTeste = new File("arquivo.txt");
+            Scanner scan = new Scanner(arquivoExceptionTeste);
+        }catch (FileNotFoundException e){
+            throw new ExcecaoProcessarNota(e.getMessage());
         }
     }
 }
