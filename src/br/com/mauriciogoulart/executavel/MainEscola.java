@@ -4,7 +4,7 @@ import br.com.mauriciogoulart.classes.Aluno;
 import br.com.mauriciogoulart.classes.Disciplina;
 import br.com.mauriciogoulart.classes.Secretario;
 import br.com.mauriciogoulart.constantes.StatusAluno;
-import br.com.mauriciogoulart.interfaces.PermitirAcesso;
+import br.com.mauriciogoulart.util.FuncaoAutenticacao;
 
 import javax.swing.*;
 import java.util.ArrayList;
@@ -19,7 +19,7 @@ public class MainEscola {
         String login = JOptionPane.showInputDialog("Informe o login");
         String senha = JOptionPane.showInputDialog("Informe a senha");
 
-        if(new Secretario().autenticar(login, senha)) {
+        if(new FuncaoAutenticacao(new Secretario(login, senha)).autenticar()) {
 
             //Cria lista de alunos
             List<Aluno> alunosList = new ArrayList<>();
@@ -36,7 +36,7 @@ public class MainEscola {
                 /*- Objeto criado na memoria a partir da palavra reservada "new"
                  * - new Aluno(); Esse metodo se chama "instancia" de um objeto.
                  * - Aluno aluno2 é uma referencia a classe aluno.*/
-                Aluno aluno = new Aluno(); /*João*/
+                Aluno aluno = new Aluno();
 
                 /*Manipulando dados dos objetos*/
                 aluno.setNome(JOptionPane.showInputDialog(null, "Informe o nome do " + (i + 1) + "º aluno.")); //setando valores no objeto aluno pelo metodo set
