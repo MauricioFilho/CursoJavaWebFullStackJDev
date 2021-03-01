@@ -7,9 +7,12 @@ import br.com.mauriciogoulart.constantes.StatusAluno;
 import br.com.mauriciogoulart.util.FuncaoAutenticacao;
 
 import javax.swing.*;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Scanner;
 
 public class MainEscola {
 
@@ -19,9 +22,13 @@ public class MainEscola {
         String login = JOptionPane.showInputDialog("Informe o login");
         String senha = JOptionPane.showInputDialog("Informe a senha");
 
-        Aluno alunoException = null;
+        File arquivoExceptionTeste = new File("arquivo.txt");
+
+
 
         try {
+            Scanner scan = new Scanner(arquivoExceptionTeste);
+
             if (new FuncaoAutenticacao(new Secretario(login, senha)).autenticar()) {
 
                 //Cria lista de alunos
@@ -43,8 +50,10 @@ public class MainEscola {
 
                     /*Manipulando dados dos objetos*/
                     aluno.setNome(JOptionPane.showInputDialog(null, "Informe o nome do " + (i + 1) + "º aluno.")); //setando valores no objeto aluno pelo metodo set
-                    System.out.println("Nome do aluno é: " + aluno.getNome()); //recuperando os valores setados pelo metodo set utilizando o metodo get
+                    aluno.setIdade(Integer.parseInt(JOptionPane.showInputDialog(null,"Qual a idade do aluno")));
 
+                    System.out.println("Nome do aluno é: " + aluno.getNome()); //recuperando os valores setados pelo metodo set utilizando o metodo get
+                    System.out.println("A idade do aluno é: " + aluno.getIdade());
                     //Adicionando elementos em uma lista
 
                     //Adicionando de forma estatica
@@ -161,8 +170,8 @@ public class MainEscola {
             } else {
                 JOptionPane.showMessageDialog(null, "Usuario ou senha invalidas!");
             }
-
-        }catch (Exception e){
+            /*Multiplos catch de captura de erros*/
+        }catch (NumberFormatException e){
 
             /*Imprime o erro no console*/
             e.printStackTrace();
@@ -173,10 +182,20 @@ public class MainEscola {
             /*Percorrendo uma pilha de erros e imprimindo utilizando metodo da classe exception*/
             for (int i = 0; i < e.getStackTrace().length; i++) {
 
-                System.out.println("Classe de erro: " + e.getStackTrace()[i].getClass());
-                System.out.println("Metodo de erro: " + e.getStackTrace()[i].getMethodName());
-                System.out.println("Linha de erro: " + e.getStackTrace()[i].getLineNumber());
+                System.out.println("Classe de erro: " + e.getStackTrace()[i].getClass()); //Retorna a classe do erro
+                System.out.println("Metodo de erro: " + e.getStackTrace()[i].getMethodName()); //Retorna o metodo do erro
+                System.out.println("Linha de erro: " + e.getStackTrace()[i].getLineNumber()); //Retorna a linha em que ocorreu erro
+                System.out.println("Tipo de exceção: " +  e.getClass().getName()); //Retorna qual tipo de exceção ocorreu
             }
+
+            JOptionPane.showMessageDialog(null, "Erro na conversão de números -> " + e.getMessage());
+        /* tipos de erros comuns durante o desenvolvimento */
+        }catch(NullPointerException e){
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Erro NullPointerException -> " + e.getMessage());
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Erro FileNotFoundException -> " + e.getMessage());
         }
     }
 }
