@@ -54,25 +54,25 @@ public class MainEscola {
                     //Adicionando de forma estatica
                     Disciplina disciplina1 = new Disciplina();
                     disciplina1.setDisciplina("Banco de dados");
-                    disciplina1.setNotas(90);
+                    //disciplina1.setNotas(90);
 
                     //aluno.getDisciplina().add(disciplina1); //adicionado a lista
 
                     Disciplina disciplina2 = new Disciplina();
                     disciplina2.setDisciplina("Matematica");
-                    disciplina2.setNotas(80);
+                    //disciplina2.setNotas(80);
 
                     //aluno.getDisciplina().add(disciplina2); //adicionado a lista
 
                     Disciplina disciplina3 = new Disciplina();
                     disciplina3.setDisciplina("Geografia");
-                    disciplina3.setNotas(97);
+                    //disciplina3.setNotas(97);
 
                     //aluno.getDisciplina().add(disciplina3); //adicionado a lista
 
                     Disciplina disciplina4 = new Disciplina();
                     disciplina4.setDisciplina("Java Web");
-                    disciplina4.setNotas(70);
+                    //disciplina4.setNotas(70);
 
                     //aluno.getDisciplina().add(disciplina4); //adicionado a lista
 
@@ -86,7 +86,7 @@ public class MainEscola {
                         Disciplina disciplina = new Disciplina();
 
                         disciplina.setDisciplina(nomeDisciplina);
-                        disciplina.setNotas(notaDisciplina);
+                        //disciplina.setNotas(notaDisciplina);
 
                         aluno.getDisciplina().add(disciplina);
                     }
@@ -152,8 +152,8 @@ public class MainEscola {
 
                         //Cria novo aluno a ser trocado
                         Aluno alunoNovo = new Aluno("João");
-                        Disciplina disciplina = new Disciplina(55, "Matematica");
-                        alunoNovo.getDisciplina().add(disciplina);
+                        //Disciplina disciplina = new Disciplina(55, "Matematica");
+                       // alunoNovo.getDisciplina().add(disciplina);
 
                         //Adiciona elemento por posição
                         alunosList.set(pos, alunoNovo);

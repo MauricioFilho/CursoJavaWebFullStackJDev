@@ -44,5 +44,20 @@ public class MainArray {
 
         aluno.getDisciplina().add(disciplina);
 
+        /*Recuperando dados de um array*/
+
+        for (Disciplina d:aluno.getDisciplina()
+             ) {
+
+            System.out.println("Disciplina do aluno -> " + d.getDisciplina());
+
+
+            for (int i = 0; i < disciplina.getNotas().length; i++) {
+
+                System.out.println("As notas da disciplina são -> " + d.getNotas()[i]);
+
+            }
+        }
+
     }
 }
