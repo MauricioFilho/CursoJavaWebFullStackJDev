@@ -191,17 +191,17 @@ public class MainEscola {
             e.printStackTrace();
             JOptionPane.showMessageDialog(null, "Erro NullPointerException -> " + e.getMessage());
 
-        } /*catch (FileNotFoundException e) {
+        } catch (FileNotFoundException e) {
 
             e.printStackTrace();
             JOptionPane.showMessageDialog(null, "Erro FileNotFoundException -> " + e.getMessage());
 
-        }*/ catch (ExcecaoProcessarNota e){
+        }/*catch (ExcecaoProcessarNota e){ //exceção personalizada.
 
             e.printStackTrace();
             JOptionPane.showMessageDialog(null,"Erro Exceção personalizada -> " + e.getMessage());
 
-        }finally { /* Sempre executado ao final do processo, ocorrendo erro ou não  (Não é obrigatório) -
+        }*/finally { /* Sempre executado ao final do processo, ocorrendo erro ou não  (Não é obrigatório) -
                          Normalmente utilizado para executar alguma tarefa após a realização de um bloco de códigos*/
 
             JOptionPane.showMessageDialog(null, "Obrigado por aprender Java!");
@@ -209,12 +209,10 @@ public class MainEscola {
         }
     }
     /*metodo de teste para ler um arquivo e lançar uma exceção personalizada para o bloco de código*/
-    public static void lerArquivo() throws ExcecaoProcessarNota{
-        try{
+    public static void lerArquivo() throws FileNotFoundException{ //throws na assinatura do metodo joga a exceção para
+                                                                // a parte do bloco em que o metodo está sendo executado
             File arquivoExceptionTeste = new File("arquivo.txt");
             Scanner scan = new Scanner(arquivoExceptionTeste);
-        }catch (FileNotFoundException e){
-            throw new ExcecaoProcessarNota(e.getMessage());
-        }
+
     }
 }
