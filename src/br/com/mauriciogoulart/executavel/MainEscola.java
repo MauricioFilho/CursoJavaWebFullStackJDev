@@ -19,145 +19,164 @@ public class MainEscola {
         String login = JOptionPane.showInputDialog("Informe o login");
         String senha = JOptionPane.showInputDialog("Informe a senha");
 
-        if(new FuncaoAutenticacao(new Secretario(login, senha)).autenticar()) {
+        Aluno alunoException = null;
 
-            //Cria lista de alunos
-            List<Aluno> alunosList = new ArrayList<>();
+        try {
+            if (new FuncaoAutenticacao(new Secretario(login, senha)).autenticar()) {
 
-            /*Hashmap é uma lista que identifica valores(V) a partir de uma chave (K)*/
-            HashMap<String, List<Aluno>> alunosMap = new HashMap<>();
+                //Cria lista de alunos
+                List<Aluno> alunosList = new ArrayList<>();
 
-            //Automatizando o processo de inserção de dados na lista de alunos
-            for (int i = 0; i < 5; i++) {
+                /*Hashmap é uma lista que identifica valores(V) a partir de uma chave (K)*/
+                HashMap<String, List<Aluno>> alunosMap = new HashMap<>();
 
-                /* Objeto ainda não existe na memoria, apenas existe uma referência a classe */
-                //Aluno aluno1;
+                //Automatizando o processo de inserção de dados na lista de alunos
+                for (int i = 0; i < 5; i++) {
 
-                /*- Objeto criado na memoria a partir da palavra reservada "new"
-                 * - new Aluno(); Esse metodo se chama "instancia" de um objeto.
-                 * - Aluno aluno2 é uma referencia a classe aluno.*/
-                Aluno aluno = new Aluno();
+                    /* Objeto ainda não existe na memoria, apenas existe uma referência a classe */
+                    //Aluno aluno1;
 
-                /*Manipulando dados dos objetos*/
-                aluno.setNome(JOptionPane.showInputDialog(null, "Informe o nome do " + (i + 1) + "º aluno.")); //setando valores no objeto aluno pelo metodo set
-                System.out.println("Nome do aluno é: " + aluno.getNome()); //recuperando os valores setados pelo metodo set utilizando o metodo get
+                    /*- Objeto criado na memoria a partir da palavra reservada "new"
+                     * - new Aluno(); Esse metodo se chama "instancia" de um objeto.
+                     * - Aluno aluno2 é uma referencia a classe aluno.*/
+                    Aluno aluno = new Aluno();
+
+                    /*Manipulando dados dos objetos*/
+                    aluno.setNome(JOptionPane.showInputDialog(null, "Informe o nome do " + (i + 1) + "º aluno.")); //setando valores no objeto aluno pelo metodo set
+                    System.out.println("Nome do aluno é: " + aluno.getNome()); //recuperando os valores setados pelo metodo set utilizando o metodo get
+
+                    //Adicionando elementos em uma lista
+
+                    //Adicionando de forma estatica
+                    Disciplina disciplina1 = new Disciplina();
+                    disciplina1.setDisciplina("Banco de dados");
+                    disciplina1.setNota(90);
+
+                    //aluno.getDisciplina().add(disciplina1); //adicionado a lista
+
+                    Disciplina disciplina2 = new Disciplina();
+                    disciplina2.setDisciplina("Matematica");
+                    disciplina2.setNota(80);
+
+                    //aluno.getDisciplina().add(disciplina2); //adicionado a lista
+
+                    Disciplina disciplina3 = new Disciplina();
+                    disciplina3.setDisciplina("Geografia");
+                    disciplina3.setNota(97);
+
+                    //aluno.getDisciplina().add(disciplina3); //adicionado a lista
+
+                    Disciplina disciplina4 = new Disciplina();
+                    disciplina4.setDisciplina("Java Web");
+                    disciplina4.setNota(70);
+
+                    //aluno.getDisciplina().add(disciplina4); //adicionado a lista
 
 
-                //Adicionando elementos em uma lista
+                    /*Adicionando elementos em uma lista de disciplinas de forma dinamica*/
+                    for (int pos = 1; pos <= 1; pos++) {
 
-                //Adicionando de forma estatica
-                Disciplina disciplina1 = new Disciplina();
-                disciplina1.setDisciplina("Banco de dados");
-                disciplina1.setNota(90);
+                        String nomeDisciplina = JOptionPane.showInputDialog("Digite nome da disciplina " + pos);
+                        double notaDisciplina = Double.parseDouble(JOptionPane.showInputDialog("Digite a nota " + pos));
 
-                //aluno.getDisciplina().add(disciplina1); //adicionado a lista
+                        Disciplina disciplina = new Disciplina();
 
-                Disciplina disciplina2 = new Disciplina();
-                disciplina2.setDisciplina("Matematica");
-                disciplina2.setNota(80);
+                        disciplina.setDisciplina(nomeDisciplina);
+                        disciplina.setNota(notaDisciplina);
 
-                //aluno.getDisciplina().add(disciplina2); //adicionado a lista
+                        aluno.getDisciplina().add(disciplina);
+                    }
 
-                Disciplina disciplina3 = new Disciplina();
-                disciplina3.setDisciplina("Geografia");
-                disciplina3.setNota(97);
+                    /*Removendo elementos de uma Lista*/
+                    int escolha = JOptionPane.showConfirmDialog(null, "Deseja remover alguma disciplina?"); //caixa de escolha dinamica
+                    int index = 1;
+                    //Continua até o usuário selecionar "Não ou Cancelar"
+                    while (escolha == 0) { //0 = Sim
 
-                //aluno.getDisciplina().add(disciplina3); //adicionado a lista
+                        String disciplinaRemover = JOptionPane.showInputDialog("Insira a disciplina a ser removida: 1 , 2 , 3 ou 4");
+                        aluno.getDisciplina().remove(Integer.parseInt(disciplinaRemover) - index); //removendo elemento da lista
+                        index++;
+                        escolha = JOptionPane.showConfirmDialog(null, "Deseja remover mais alguma matéria?");
+                    }
 
-                Disciplina disciplina4 = new Disciplina();
-                disciplina4.setDisciplina("Java Web");
-                disciplina4.setNota(70);
-
-                //aluno.getDisciplina().add(disciplina4); //adicionado a lista
-
-
-                /*Adicionando elementos em uma lista de disciplinas de forma dinamica*/
-                for (int pos = 1; pos <= 1; pos++) {
-
-                    String nomeDisciplina = JOptionPane.showInputDialog("Digite nome da disciplina " + pos);
-                    double notaDisciplina = Double.parseDouble(JOptionPane.showInputDialog("Digite a nota " + pos));
-
-                    Disciplina disciplina = new Disciplina();
-
-                    disciplina.setDisciplina(nomeDisciplina);
-                    disciplina.setNota(notaDisciplina);
-
-                    aluno.getDisciplina().add(disciplina);
+                    alunosList.add(aluno); //adiciona o aluno na lista de alunos.
                 }
+                //Cria 3 listas de alunos por status dentro do map alunosMap utilizando os atributos staticos como chave
+                alunosMap.put(StatusAluno.APROVADO, new ArrayList<>());
+                alunosMap.put(StatusAluno.REPROVADO, new ArrayList<>());
+                alunosMap.put(StatusAluno.RECUPERACAO, new ArrayList<>());
 
-                /*Removendo elementos de uma Lista*/
-                int escolha = JOptionPane.showConfirmDialog(null, "Deseja remover alguma disciplina?"); //caixa de escolha dinamica
-                int index = 1;
-                //Continua até o usuário selecionar "Não ou Cancelar"
-                while (escolha == 0) { //0 = Sim
-
-                    String disciplinaRemover = JOptionPane.showInputDialog("Insira a disciplina a ser removida: 1 , 2 , 3 ou 4");
-                    aluno.getDisciplina().remove(Integer.parseInt(disciplinaRemover) - index); //removendo elemento da lista
-                    index++;
-                    escolha = JOptionPane.showConfirmDialog(null, "Deseja remover mais alguma matéria?");
+                //Separa os alunos por seu status
+                for (Aluno aluno : alunosList
+                ) {
+                    if (aluno.getAlunoAprovado().equalsIgnoreCase(StatusAluno.APROVADO)) {
+                        alunosMap.get(StatusAluno.APROVADO).add(aluno);
+                    } else if (aluno.getAlunoAprovado().equalsIgnoreCase(StatusAluno.RECUPERACAO)) {
+                        alunosMap.get(StatusAluno.RECUPERACAO).add(aluno);
+                    } else {
+                        alunosMap.get(StatusAluno.REPROVADO).add(aluno);
+                    }
                 }
+                //Imprime a quantidade de alunos por status
+                System.out.println(
+                        "Quantidade de alunos aprovados: " + alunosMap.get(StatusAluno.APROVADO).size() +
+                                "\nQuantidade de alunos em recuperação: " + alunosMap.get(StatusAluno.RECUPERACAO).size() +
+                                "\nQuantidade de alunos reprovados: " + alunosMap.get(StatusAluno.REPROVADO).size()
+                );
 
-                alunosList.add(aluno); //adiciona o aluno na lista de alunos.
+
+                //foreach percorrendo toda a lista e imprimindo os dados
+                for (Aluno aluno : alunosList
+                ) {
+                    //remove aluno por nome
+                    if (JOptionPane.showConfirmDialog(null, "Deseja remover o aluno: " + aluno.getNome()) == 0) {
+                        alunosList.remove(aluno);
+                    } else { //Imprime os dados na tela
+                        System.out.println("Detalhes -> " + aluno);
+                        System.out.println("Média aluno: " + aluno.getMedia());
+                        System.out.println("Situação do aluno: " + aluno.getAlunoAprovado());
+                    }
+                }
+                //Percorrendo a lista utilizando o for e o index de cada elemento
+                for (int pos = 0; pos < alunosList.size(); pos++) {
+
+                    Aluno aluno = alunosList.get(pos); //recupera o aluno conforme o index (pos) passado por parametro.
+                    System.out.println("Nome aluno: " + aluno.getNome()); //imprime o nome do aluno respectivamente
+
+                    //Trocar aluno por posição
+                    if (aluno.getNome().equalsIgnoreCase("Mauricio")) {
+
+                        //Cria novo aluno a ser trocado
+                        Aluno alunoNovo = new Aluno("João");
+                        Disciplina disciplina = new Disciplina(55, "Matematica");
+                        alunoNovo.getDisciplina().add(disciplina);
+
+                        //Adiciona elemento por posição
+                        alunosList.set(pos, alunoNovo);
+
+                        //Atribui o novo aluno da lista ao objeto aluno
+                        //aluno = alunosList.get(pos);
+                    }
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "Usuario ou senha invalidas!");
             }
-            //Cria 3 listas de alunos por status dentro do map alunosMap utilizando os atributos staticos como chave
-            alunosMap.put(StatusAluno.APROVADO, new ArrayList<>());
-            alunosMap.put(StatusAluno.REPROVADO, new ArrayList<>());
-            alunosMap.put(StatusAluno.RECUPERACAO, new ArrayList<>());
 
-            //Separa os alunos por seu status
-            for (Aluno aluno : alunosList
-            ) {
-                if (aluno.getAlunoAprovado().equalsIgnoreCase(StatusAluno.APROVADO)) {
-                    alunosMap.get(StatusAluno.APROVADO).add(aluno);
-                } else if (aluno.getAlunoAprovado().equalsIgnoreCase(StatusAluno.RECUPERACAO)) {
-                    alunosMap.get(StatusAluno.RECUPERACAO).add(aluno);
-                } else {
-                    alunosMap.get(StatusAluno.REPROVADO).add(aluno);
-                }
+        }catch (Exception e){
+
+            /*Imprime o erro no console*/
+            e.printStackTrace();
+
+            /*Imprime a mensagem do erro ou causa*/
+            System.out.println("Mensagem -> " +  e.getMessage());
+
+            /*Percorrendo uma pilha de erros e imprimindo utilizando metodo da classe exception*/
+            for (int i = 0; i < e.getStackTrace().length; i++) {
+
+                System.out.println("Classe de erro: " + e.getStackTrace()[i].getClass());
+                System.out.println("Metodo de erro: " + e.getStackTrace()[i].getMethodName());
+                System.out.println("Linha de erro: " + e.getStackTrace()[i].getLineNumber());
             }
-            //Imprime a quantidade de alunos por status
-            System.out.println(
-                    "Quantidade de alunos aprovados: " + alunosMap.get(StatusAluno.APROVADO).size() +
-                            "\nQuantidade de alunos em recuperação: " + alunosMap.get(StatusAluno.RECUPERACAO).size() +
-                            "\nQuantidade de alunos reprovados: " + alunosMap.get(StatusAluno.REPROVADO).size()
-            );
-
-
-            //foreach percorrendo toda a lista e imprimindo os dados
-            for (Aluno aluno : alunosList
-            ) {
-                //remove aluno por nome
-                if (JOptionPane.showConfirmDialog(null, "Deseja remover o aluno: " + aluno.getNome()) == 0) {
-                    alunosList.remove(aluno);
-                } else { //Imprime os dados na tela
-                    System.out.println("Detalhes -> " + aluno);
-                    System.out.println("Média aluno: " + aluno.getMedia());
-                    System.out.println("Situação do aluno: " + aluno.getAlunoAprovado());
-                }
-            }
-            //Percorrendo a lista utilizando o for e o index de cada elemento
-            for (int pos = 0; pos < alunosList.size(); pos++) {
-
-                Aluno aluno = alunosList.get(pos); //recupera o aluno conforme o index (pos) passado por parametro.
-                System.out.println("Nome aluno: " + aluno.getNome()); //imprime o nome do aluno respectivamente
-
-                //Trocar aluno por posição
-                if (aluno.getNome().equalsIgnoreCase("Mauricio")) {
-
-                    //Cria novo aluno a ser trocado
-                    Aluno alunoNovo = new Aluno("João");
-                    Disciplina disciplina = new Disciplina(55, "Matematica");
-                    alunoNovo.getDisciplina().add(disciplina);
-
-                    //Adiciona elemento por posição
-                    alunosList.set(pos, alunoNovo);
-
-                    //Atribui o novo aluno da lista ao objeto aluno
-                    //aluno = alunosList.get(pos);
-                }
-            }
-        } else {
-            JOptionPane.showMessageDialog(null, "Usuario ou senha invalidas!");
         }
     }
 }
