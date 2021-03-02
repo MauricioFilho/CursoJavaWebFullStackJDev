@@ -3,6 +3,10 @@ package br.com.mauriciogoulart.executavel;
 import br.com.mauriciogoulart.classes.Aluno;
 import br.com.mauriciogoulart.classes.Disciplina;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class MainArray {
 
     public static void main(String[] args) {
@@ -86,6 +90,26 @@ public class MainArray {
                     System.out.println(notasDisciplina);
                 }
             }
+        }
+
+        /*Conversão de array para lista e lista para array*/
+
+        String[] listaALunos = {"Mauricio", "Priscila", "Fabiani"};
+
+        /*Array para lista*/
+        List<String> list = Arrays.asList(listaALunos);
+
+        for (String alunos:list
+             ) {
+            System.out.println(alunos);
+        }
+
+        /*Lista para array*/
+        String[] listToArray = list.toArray(new String[3]);
+
+        for (String s: listToArray
+             ) {
+            System.out.println(s);
         }
     }
 }
