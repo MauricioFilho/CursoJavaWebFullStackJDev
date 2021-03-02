@@ -44,6 +44,14 @@ public class MainArray {
 
         aluno.getDisciplina().add(disciplina);
 
+        Disciplina disciplina2 = new Disciplina();
+        disciplina2.setDisciplina("Banco de dados");
+
+        double[] notasAluno2 = {1,2,3,4};
+        disciplina2.setNotas(notasAluno);
+
+        aluno.getDisciplina().add(disciplina2);
+
         /*Recuperando dados de um array*/
 
         for (Disciplina d:aluno.getDisciplina()
@@ -51,13 +59,33 @@ public class MainArray {
 
             System.out.println("Disciplina do aluno -> " + d.getDisciplina());
 
-
+            double maiorNota = 0.0;
             for (int i = 0; i < disciplina.getNotas().length; i++) {
 
                 System.out.println("As notas da disciplina são -> " + d.getNotas()[i]);
 
             }
         }
+        //Arrays de objetos
+        Aluno[] arrayAluno = {aluno};
 
+        /*Objeto aluno recebendo os dados do array*/
+        for (Aluno alunos: arrayAluno
+             ) {
+
+            System.out.println(alunos.getNome());
+            //Percorre todas as disciplinas
+            for (Disciplina d: alunos.getDisciplina()
+                 ) {
+
+                System.out.println(d.getDisciplina());
+                //percorre todas as notas da disciplinae
+                for (double notasDisciplina:d.getNotas()
+                     ) {
+
+                    System.out.println(notasDisciplina);
+                }
+            }
+        }
     }
 }
